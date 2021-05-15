@@ -4,8 +4,10 @@ import main.framework.sql.ConnectionException;
 import main.framework.sql.SQL;
 import main.framework.sql.SQLConnection;
 import main.framework.sql.SQLConnectionBuilder;
+import main.framework.sql.models.Join;
 import main.framework.sql.models.Values;
 import main.framework.sql.models.Where;
+import main.framework.sql.models.Set;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -46,8 +48,19 @@ public class Main {
                 System.out.println(" Email > " + r.get("email"));
                 System.out.println("");
             }
+        database.update("user",
+                new Set()
+                .set("nome", "Carlos Eduardo"),
+                new Where().where("nome", "carlos")
+        );
         database.delete("user", new Where().where("email", "carlos.eduardovieiraoliveira12@gmail.com"));
+        database.query("insert into teste (a, b) values('a', 'b')");
+        database.select_query("select * from teste").map();
 
+        database.select("user",
+                new Join()
+                .join("user_country", "user.email = user_contry.email", Join.JOIN.INNER_JOIN)
+        ).result();
     }
 
 }
