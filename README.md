@@ -1,6 +1,6 @@
 # DatabaseFramework
 Framework desenvolvida para facilitar o uso de conexão com banco de dados mysql, a mesma se encontra ainda em desenvolvimento e manutenção, sugestões e reporte de bugs são muito bem vindos.
-Para utilizá-la é simples, basta criar conexão com banco de dados utilizando a seguinte forma
+<br>Para utilizá-la é simples, basta criar conexão com banco de dados utilizando a seguinte forma
 
 ```java 
 SQLConnectionBuilder.addConnections(
@@ -14,8 +14,8 @@ podemos criar nossa instância do nossa classe onde será realizado nossas query
 ```java
 database = new SQL();
 ```
-O construtor SQL aceita um argumento que será o nome da conexão que deseja selecionar, as mesma sconexões que criamos logo acima, caso nenhum argumento
-for passado ela selecionará por padrão a primeira conexão criada.
+O construtor SQL aceita um argumento que será o nome da conexão que deseja selecionar, as mesmas conexões que criamos logo acima, caso nenhum argumento
+for passado ela selecionará por padrão a primeira conexão criada. <br>
 Salve essa variável, pois através dela poderemos criar nossas query.
 
 **Exemplo de insert**
@@ -63,8 +63,7 @@ A framework está em minha versão inicial, portanto pode não ser compatível c
 database.query("insert into teste (a, b) values('a', 'b')");
 database.select_query("select * from teste").map();
 ```
-onde o **query** e responsável por executar uma query que não retornará dados
-onde o **select_query** e responsável por executar uma query que retornará dados
+onde o ```query``` e responsável por executar uma query que não retornará dados e o ```select_query``` e responsável por executar uma query que retornará dados
 
 Joins são compatíveis e pode ser feito de forma simples
 ```java
@@ -75,5 +74,5 @@ database.select("user",
 ```
 
 Você pode trazer os dados de um select de duas formas
-Como List<Map<String, Object>> utilizando o método ```map()```
-ou como ResultSet (*padrão do java*) utilizando o método ```result()```
+Como ```List<Map<String, Object>>``` utilizando o método ```map()```
+<br>ou como ```ResultSet``` (*padrão do java*) utilizando o método ```result()```
